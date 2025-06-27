@@ -2,7 +2,7 @@
   "name": "fsw",
   "version": "1.0.0",
   "description": "Curso de Node.js",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "start:dev": "nodemon index.js"
   },
