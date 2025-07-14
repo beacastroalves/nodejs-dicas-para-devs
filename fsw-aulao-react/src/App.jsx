@@ -12,6 +12,25 @@ function App() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
+  /* SE QUISER, VOCÊ PODE CHAMAR UMA API PARA PEGAR AS TAREFAS */
+  useEffect(() => {
+    const fetchTasks = async () => {
+
+      //Chamar API
+      const response = await fetch('https://jsonplaceholder.typicode.com/todos', {
+        method: 'GET'
+      });
+
+      //Pegar os dados que ela retorna
+      const data = await response.json();
+
+      //Armazenar/Persistir esses dados no state
+      setTasks(data);
+    };
+    fetchTasks();
+   }, []);
+
+
   function onTaskClick(taskId) {
     const newTasks = tasks.map(task => {
       if (task.id === taskId) {
