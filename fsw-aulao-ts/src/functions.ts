@@ -4,6 +4,7 @@ const sum = (x: number, y: number): string | number => {
 
 const value = sum(2, 5);
 
+// void usado apenas para funções
 const log = (message: string): void => {
   console.log(message);
 }
