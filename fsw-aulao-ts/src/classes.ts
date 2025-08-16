@@ -1,14 +1,12 @@
 interface IPerson {
   id: number;
-  name: string;
-  age: number;
   sayMyName(): string;
 }
 
 class Person implements IPerson {
-  id: number;
-  name: string;
-  age: number;
+  readonly id: number;
+  protected name: string;
+  private age: number;
 
   constructor(id: number, name: string, age: number) {
     this.id = id;
@@ -18,6 +16,17 @@ class Person implements IPerson {
 
   sayMyName(): string {
     return this.name
+  }
+}
+
+class Employee extends Person {
+  constructor(id: number, name: string, age: number) {
+    super(id, name, age);
+  }
+
+  whoAmI() {
+    this.name;
+    // this.age; Nao podemos acessar o age pois ele é privado
   }
 }
 
